@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -113,6 +114,16 @@ public class WeightCalculator extends ActionBarActivity
 
         //Gets the target weight
         EditText targetWeight = (EditText) findViewById(R.id.target);
+        //if the target weight has been set, calculate how to achieve it and display results
+        String targetString = targetWeight.getText().toString();
+        if(NumberUtils.isNumber(targetString))
+        {
+            Double targetDouble = Double.parseDouble(targetString);
+            weightsCalc.calculateWeights(targetDouble);
+            //display results in output TextView
+            TextView results = (TextView) findViewById(R.id.output);
+            results.setText(weightsCalc.targetWeightsString());
+        }
     }
 
     @Override
