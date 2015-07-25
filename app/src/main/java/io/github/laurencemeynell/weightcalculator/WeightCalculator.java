@@ -119,10 +119,17 @@ public class WeightCalculator extends ActionBarActivity
         if(NumberUtils.isNumber(targetString))
         {
             Double targetDouble = Double.parseDouble(targetString);
-            weightsCalc.calculateWeights(targetDouble);
+            boolean targetMet = weightsCalc.calculateWeights(targetDouble);
             //display results in output TextView
             TextView results = (TextView) findViewById(R.id.output);
-            results.setText(weightsCalc.targetWeightsString());
+            String resultsString = "";
+            if(!targetMet)
+            {
+                resultsString += ("Target is not achievable with your weights displaying " +
+                        "nearest achievable weight under your target\n\n");
+            }
+            resultsString += weightsCalc.targetWeightsString();
+            results.setText(resultsString);
         }
     }
 
