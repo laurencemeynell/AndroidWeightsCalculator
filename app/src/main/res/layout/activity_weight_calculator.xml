@@ -10,45 +10,49 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/bar_weight"
-        android:id="@+id/availableWeights"
+        android:id="@+id/barWeights"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/barWeight"
-        android:layout_below="@+id/availableWeights"
-        android:layout_alignRight="@+id/availableWeights"
-        android:layout_alignEnd="@+id/availableWeights"
-        android:layout_alignLeft="@+id/availableWeights" />
+        android:id="@+id/bar"
+        android:layout_below="@+id/barWeights"
+        android:layout_alignRight="@+id/barWeights"
+        android:layout_alignEnd="@+id/barWeights"
+        android:layout_alignLeft="@+id/barWeights" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/available_weights"
-        android:id="@+id/textView"
-        android:layout_below="@+id/barWeight"
+        android:id="@+id/availableWeights"
+        android:layout_below="@+id/bar"
         android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/weight1"
-        android:layout_below="@+id/textView"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_below="@+id/availableWeights"
+        android:layout_alignRight="@+id/bar"
+        android:layout_alignEnd="@+id/bar"
+        android:layout_alignLeft="@+id/availableWeights"
+        android:layout_alignStart="@+id/availableWeights" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/weight2"
@@ -61,6 +65,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/weight3"
@@ -73,6 +78,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/weight4"
@@ -85,6 +91,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/weight5"
@@ -94,13 +101,167 @@
         android:layout_alignLeft="@+id/weight4"
         android:layout_alignStart="@+id/weight4" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/weight6"
+        android:layout_below="@+id/weight5"
+        android:layout_alignLeft="@+id/weight5"
+        android:layout_alignStart="@+id/weight5"
+        android:layout_alignRight="@+id/weight5"
+        android:layout_alignEnd="@+id/weight5" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/available_weights"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/weight5"
+        android:text="@string/target_weight"
+        android:id="@+id/targetWeight"
+        android:layout_below="@+id/weight6"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/x"
+        android:id="@+id/x1"
+        android:layout_alignBottom="@+id/weight1"
+        android:layout_toRightOf="@+id/bar"
+        android:layout_toEndOf="@+id/bar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/x"
+        android:id="@+id/x2"
+        android:layout_above="@+id/weight3"
+        android:layout_toRightOf="@+id/bar"
+        android:layout_toEndOf="@+id/bar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/x"
+        android:id="@+id/x3"
+        android:layout_above="@+id/weight4"
+        android:layout_toRightOf="@+id/bar"
+        android:layout_toEndOf="@+id/bar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/x"
+        android:id="@+id/x4"
+        android:layout_above="@+id/weight5"
+        android:layout_toRightOf="@+id/bar"
+        android:layout_toEndOf="@+id/bar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/x"
+        android:id="@+id/x5"
+        android:layout_above="@+id/weight6"
+        android:layout_toRightOf="@+id/bar"
+        android:layout_toEndOf="@+id/bar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/x"
+        android:id="@+id/x6"
+        android:layout_above="@+id/targetWeight"
+        android:layout_toRightOf="@+id/bar"
+        android:layout_toEndOf="@+id/bar" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/multiplier1"
+        android:entries="@array/weight_multiplier"
+        android:layout_alignBottom="@+id/x1"
+        android:layout_toRightOf="@+id/x1"
+        android:layout_toEndOf="@+id/x1"
+        android:spinnerMode="dialog" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/multiplier2"
+        android:entries="@array/weight_multiplier"
+        android:spinnerMode="dialog"
+        android:layout_alignBottom="@+id/x2"
+        android:layout_toRightOf="@+id/x2"
+        android:layout_toEndOf="@+id/x2" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/multiplier3"
+        android:entries="@array/weight_multiplier"
+        android:spinnerMode="dialog"
+        android:layout_alignBottom="@+id/x3"
+        android:layout_toRightOf="@+id/x3"
+        android:layout_toEndOf="@+id/x3" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/multiplier4"
+        android:entries="@array/weight_multiplier"
+        android:spinnerMode="dialog"
+        android:layout_alignBottom="@+id/x4"
+        android:layout_toRightOf="@+id/x4"
+        android:layout_toEndOf="@+id/x4" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/multiplier5"
+        android:entries="@array/weight_multiplier"
+        android:spinnerMode="dialog"
+        android:layout_alignBottom="@+id/x5"
+        android:layout_toRightOf="@+id/x5"
+        android:layout_toEndOf="@+id/x5" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/multiplier6"
+        android:entries="@array/weight_multiplier"
+        android:spinnerMode="dialog"
+        android:layout_alignBottom="@+id/x6"
+        android:layout_toRightOf="@+id/x6"
+        android:layout_toEndOf="@+id/x6" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/target"
+        android:layout_below="@+id/targetWeight"
+        android:layout_alignLeft="@+id/bar"
+        android:layout_alignStart="@+id/bar"
+        android:layout_alignRight="@+id/bar"
+        android:layout_alignEnd="@+id/bar" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate"
+        android:id="@+id/button"
+        android:layout_below="@+id/target"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
