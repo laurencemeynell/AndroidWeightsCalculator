@@ -15,8 +15,10 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 public class WeightCalculator extends ActionBarActivity
 {
+    public static final int MAX_NUM_OF_WEIGHTS = 6;
+
     private WeightsCalc weightsCalc;
-    private SortedMap<Double, Integer> availableWeights = new TreeMap<>();
+    private SortedMap<Double, Integer> availableWeights;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -50,6 +52,7 @@ public class WeightCalculator extends ActionBarActivity
             if(availableWeights.containsKey(currentWeight))
             {
                 currentMultiplier += availableWeights.get(currentWeight);
+                availableWeights.put(currentWeight, currentMultiplier);
             }
             else
             {
@@ -69,6 +72,7 @@ public class WeightCalculator extends ActionBarActivity
     {
         //initialze variables
         weightsCalc = new WeightsCalc();
+        availableWeights = new TreeMap<>();
 
         //Get and input the bar weight
         EditText barWeight = (EditText) findViewById(R.id.bar);
@@ -79,35 +83,23 @@ public class WeightCalculator extends ActionBarActivity
             weightsCalc.setBarWeight(barDouble);
         }
 
-        //If user has inputted a weight1 get and add it to availableWeights
-        EditText weight1 = (EditText) findViewById(R.id.weight1);
-        Spinner multiplier1 = (Spinner) findViewById(R.id.multiplier1);
-        addWeights(weight1, multiplier1);
+        EditText[] weights = new EditText[6];
+        Spinner[] spinners = new Spinner[6];
 
-        //If user has inputted a weight2 get and add it to availableWeights
-        EditText weight2 = (EditText) findViewById(R.id.weight2);
-        Spinner multiplier2 = (Spinner) findViewById(R.id.multiplier2);
-        addWeights(weight2, multiplier2);
+        for(int i = 0; i < MAX_NUM_OF_WEIGHTS; i++)
+        {
+            String packageName = getPackageName();
 
-        //If user has inputted a weight3 get and add it to availableWeights
-        EditText weight3 = (EditText) findViewById(R.id.weight3);
-        Spinner multiplier3 = (Spinner) findViewById(R.id.multiplier3);
-        addWeights(weight3, multiplier3);
+            String weightEditTextId = "weight" + (i + 1);
+            int weightResId = getResources().getIdentifier(weightEditTextId, "id", packageName);
+            weights[i] = (EditText) findViewById(weightResId);
 
-        //If user has inputted a weight4 get and add it to availableWeights
-        EditText weight4 = (EditText) findViewById(R.id.weight4);
-        Spinner multiplier4 = (Spinner) findViewById(R.id.multiplier4);
-        addWeights(weight4, multiplier4);
+            String spinnerId = "multiplier" + (i + 1);
+            int spinnerResId = getResources().getIdentifier(spinnerId, "id", packageName);
+            spinners[i] = (Spinner) findViewById(spinnerResId);
 
-        //If user has inputted a weight5 get and add it to availableWeights
-        EditText weight5 = (EditText) findViewById(R.id.weight5);
-        Spinner multiplier5 = (Spinner) findViewById(R.id.multiplier5);
-        addWeights(weight5, multiplier5);
-
-        //If user has inputted a weight6 get and add it to availableWeights
-        EditText weight6 = (EditText) findViewById(R.id.weight6);
-        Spinner multiplier6 = (Spinner) findViewById(R.id.multiplier6);
-        addWeights(weight6, multiplier6);
+            addWeights(weights[i], spinners[i]);
+        }
 
         //Set weightsCalc's availableWeights to our newly generated map of available weights
         weightsCalc.setAvailableWeights(availableWeights);

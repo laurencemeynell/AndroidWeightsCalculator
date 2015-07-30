@@ -281,5 +281,23 @@
             android:layout_alignParentStart="true"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/save"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/targetWeight"
+            android:layout_toStartOf="@+id/targetWeight"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/load"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/targetWeight"
+            android:layout_toEndOf="@+id/targetWeight"/>
+
     </RelativeLayout>
 </ScrollView>
