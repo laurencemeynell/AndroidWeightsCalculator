@@ -1,19 +1,40 @@
 package io.github.laurencemeynell.weightcalculator;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import java.util.HashMap;
+import java.util.TreeMap;
 
 
 public class DisplayResults extends ActionBarActivity
 {
+    public static final String THE_WEIGHTS = "availableWeightsExtra";
+    public static final String TARGET = "theTargetWeight";
+
+    private TreeMap<Double, Integer> availableWeights;
+    double targetWeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_results);
+
+        Intent theIntent = getIntent();
+
+        //retrieve HashMap referenced by THE_WEIGHTS and cast it into availableWeights
+        availableWeights = new TreeMap<>((HashMap) theIntent.getSerializableExtra(THE_WEIGHTS));
+        //retrieve double referenced by TARGET
+        targetWeight = theIntent.getDoubleExtra(TARGET, 0.0);
+
+        TextView results = (TextView) findViewById(R.id.textView1);
+        results.setText(availableWeights.toString());
+        results.append("\n" + targetWeight);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package io.github.laurencemeynell.weightcalculator;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,7 +19,7 @@ public class WeightCalculator extends ActionBarActivity
     public static final int MAX_NUM_OF_WEIGHTS = 6;
 
     private WeightsCalc weightsCalc;
-    private SortedMap<Double, Integer> availableWeights;
+    private TreeMap<Double, Integer> availableWeights;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -37,7 +38,7 @@ public class WeightCalculator extends ActionBarActivity
      * @param aWeight the current weight
      * @param aMultipler the current muliplier
      */
-    private void addWeights(EditText aWeight, Spinner aMultipler)
+    private void inputWeights(EditText aWeight, Spinner aMultipler)
     {
         String currentString;
         Double currentWeight;
@@ -66,6 +67,7 @@ public class WeightCalculator extends ActionBarActivity
      * and all available weights.  Then it will calculate how to achieve
      * the inputted target weight if that's possible using the available
      * weights.  The calculation will be displayed in another window.
+     *
      * @param view the current view
      */
     public void calculateWeights(View view)
@@ -83,8 +85,8 @@ public class WeightCalculator extends ActionBarActivity
             weightsCalc.setBarWeight(barDouble);
         }
 
-        EditText[] weights = new EditText[6];
-        Spinner[] spinners = new Spinner[6];
+        EditText[] weights = new EditText[MAX_NUM_OF_WEIGHTS];
+        Spinner[] spinners = new Spinner[MAX_NUM_OF_WEIGHTS];
 
         for(int i = 0; i < MAX_NUM_OF_WEIGHTS; i++)
         {
@@ -98,7 +100,7 @@ public class WeightCalculator extends ActionBarActivity
             int spinnerResId = getResources().getIdentifier(spinnerId, "id", packageName);
             spinners[i] = (Spinner) findViewById(spinnerResId);
 
-            addWeights(weights[i], spinners[i]);
+            inputWeights(weights[i], spinners[i]);
         }
 
         //Set weightsCalc's availableWeights to our newly generated map of available weights
@@ -112,6 +114,7 @@ public class WeightCalculator extends ActionBarActivity
         {
             Double targetDouble = Double.parseDouble(targetString);
             boolean targetMet = weightsCalc.calculateWeights(targetDouble);
+
             //display results in output TextView
             TextView results = (TextView) findViewById(R.id.output);
             String resultsString = "";
@@ -122,6 +125,12 @@ public class WeightCalculator extends ActionBarActivity
             }
             resultsString += weightsCalc.targetWeightsString();
             results.setText(resultsString);
+
+            //Start DisplayResults and pass available weights and target weight
+            Intent displayResultsIntent = new Intent(this, DisplayResults.class);
+            displayResultsIntent.putExtra(DisplayResults.THE_WEIGHTS, availableWeights);
+            displayResultsIntent.putExtra(DisplayResults.TARGET, targetDouble);
+            startActivity(displayResultsIntent);
         }
     }
 

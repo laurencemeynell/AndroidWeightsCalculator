@@ -6,6 +6,9 @@
     <string name="target_weight">Target Weight</string>
     <string name="calculate">Calculate</string>
     <string name="x">*</string>
+    <string name="title_activity_display_results">Weights you need</string>
+    <string name="save_button">Save</string>
+    <string name="load_button">Load</string>
     <string-array name="weight_multiplier">
         <item>2</item>
         <item>4</item>
@@ -18,7 +21,7 @@
         <item>18</item>
         <item>20</item>
     </string-array>
-    <string name="title_activity_display_results">Weights you need to reach target</string>
+
 
     <string name="hello_world">Hello world!</string>
 </resources>
