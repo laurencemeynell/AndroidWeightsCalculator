@@ -284,7 +284,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
+            android:text="@string/save_button"
             android:id="@+id/save"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/targetWeight"
@@ -293,7 +293,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
+            android:text="@string/load_button"
             android:id="@+id/load"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/targetWeight"

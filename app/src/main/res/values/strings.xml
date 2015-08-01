@@ -6,7 +6,7 @@
     <string name="target_weight">Target Weight</string>
     <string name="calculate">Calculate</string>
     <string name="x">*</string>
-    <string name="title_activity_display_results">Weights you need</string>
+    <string name="title_activity_display_results">Weights needed each side</string>
     <string name="save_button">Save</string>
     <string name="load_button">Load</string>
     <string-array name="weight_multiplier">

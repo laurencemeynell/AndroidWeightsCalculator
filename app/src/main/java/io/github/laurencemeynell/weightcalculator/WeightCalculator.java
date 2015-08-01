@@ -1,5 +1,6 @@
 package io.github.laurencemeynell.weightcalculator;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -64,9 +66,8 @@ public class WeightCalculator extends ActionBarActivity
 
     /**
      * On press of Calculate button it will store the weight of the bar
-     * and all available weights.  Then it will calculate how to achieve
-     * the inputted target weight if that's possible using the available
-     * weights.  The calculation will be displayed in another window.
+     * and all available weights.  Then it will then pass these values
+     * to DisplayResults.
      *
      * @param view the current view
      */
@@ -75,19 +76,13 @@ public class WeightCalculator extends ActionBarActivity
         //initialze variables
         weightsCalc = new WeightsCalc();
         availableWeights = new TreeMap<>();
+        Double barDouble;
 
-        //Get and input the bar weight
-        EditText barWeight = (EditText) findViewById(R.id.bar);
-        String barString = barWeight.getText().toString();
-        if(NumberUtils.isNumber(barString))
-        {
-            Double barDouble = Double.parseDouble(barString);
-            weightsCalc.setBarWeight(barDouble);
-        }
-
+        //make arrays for the weights and weight multiplier UI elements
         EditText[] weights = new EditText[MAX_NUM_OF_WEIGHTS];
         Spinner[] spinners = new Spinner[MAX_NUM_OF_WEIGHTS];
 
+        //for each element, read the values pass to inputWeights
         for(int i = 0; i < MAX_NUM_OF_WEIGHTS; i++)
         {
             String packageName = getPackageName();
@@ -103,34 +98,37 @@ public class WeightCalculator extends ActionBarActivity
             inputWeights(weights[i], spinners[i]);
         }
 
-        //Set weightsCalc's availableWeights to our newly generated map of available weights
-        weightsCalc.setAvailableWeights(availableWeights);
+        //Get the bar weight
+        EditText barWeight = (EditText) findViewById(R.id.bar);
+        String barString = barWeight.getText().toString();
 
         //Gets the target weight
         EditText targetWeight = (EditText) findViewById(R.id.target);
-        //if the target weight has been set, calculate how to achieve it and display results
         String targetString = targetWeight.getText().toString();
-        if(NumberUtils.isNumber(targetString))
+
+        //If the target and bar weights are valid, make an intent for DisplayResults
+        if(NumberUtils.isNumber(targetString) || NumberUtils.isNumber(barString))
         {
             Double targetDouble = Double.parseDouble(targetString);
+            barDouble = Double.parseDouble(barString);
             boolean targetMet = weightsCalc.calculateWeights(targetDouble);
 
-            //display results in output TextView
-            TextView results = (TextView) findViewById(R.id.output);
-            String resultsString = "";
-            if(!targetMet)
-            {
-                resultsString += ("Target is not achievable with your weights displaying " +
-                        "nearest achievable weight under your target\n\n");
-            }
-            resultsString += weightsCalc.targetWeightsString();
-            results.setText(resultsString);
-
-            //Start DisplayResults and pass available weights and target weight
+            //Start DisplayResults and pass available weights, bar and target weight
             Intent displayResultsIntent = new Intent(this, DisplayResults.class);
             displayResultsIntent.putExtra(DisplayResults.THE_WEIGHTS, availableWeights);
             displayResultsIntent.putExtra(DisplayResults.TARGET, targetDouble);
+            displayResultsIntent.putExtra(DisplayResults.BAR_WEIGHT, barDouble);
             startActivity(displayResultsIntent);
+        }
+        else
+        {
+            //If the user enters invalid numbers for target or bar display a warning toast
+            Context context = getApplicationContext();
+            CharSequence text = "Numbers not recognised try again";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
         }
     }
 
