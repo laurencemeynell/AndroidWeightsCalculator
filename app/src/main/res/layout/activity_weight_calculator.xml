@@ -286,6 +286,7 @@
             android:layout_height="wrap_content"
             android:text="@string/save_button"
             android:id="@+id/save"
+            android:onClick="saveWeights"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/targetWeight"
             android:layout_toStartOf="@+id/targetWeight"/>
@@ -295,6 +296,7 @@
             android:layout_height="wrap_content"
             android:text="@string/load_button"
             android:id="@+id/load"
+            android:onClick="loadWeights"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/targetWeight"
             android:layout_toEndOf="@+id/targetWeight"/>

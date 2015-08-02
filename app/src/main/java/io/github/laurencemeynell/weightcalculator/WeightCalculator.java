@@ -2,6 +2,7 @@ package io.github.laurencemeynell.weightcalculator;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,6 +31,19 @@ public class WeightCalculator extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weight_calculator);
         packageName  = getPackageName();
+    }
+
+    /**
+     * Displays a toast
+     * @param message the message to display
+     * @param length the length of the message: Toast.LENGTH_LONG or Toast.LENGTH_SHORT
+     */
+    private void displayToast(String message, int length)
+    {
+        Context context = getApplicationContext();
+
+        Toast toast = Toast.makeText(context, message, length);
+        toast.show();
     }
 
     /**
@@ -98,6 +112,80 @@ public class WeightCalculator extends ActionBarActivity
         return multiplier;
     }
 
+    /**
+     * Saves all of the user inputted data from the UI into SharedPreferences
+     * Then displays a toast that says "Saved"
+     * @param view the current view
+     */
+    public void saveWeights(View view)
+    {
+        //make a shared preferences and editor
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        //get the bar weight
+        EditText barWeight = (EditText) findViewById(R.id.bar);
+        editor.putString("barWeight", barWeight.getText().toString());
+
+        //get the weights and multipliers
+        for(int i = 1; i <= MAX_NUM_OF_WEIGHTS; i++)
+        {
+            EditText weight = getWeighRef(i);
+            Spinner multiplier = getMultiplierRef(i);
+            editor.putString("weight" + i, weight.getText().toString());
+            editor.putInt("multiplier" + i, multiplier.getSelectedItemPosition());
+        }
+
+        //get the target
+        EditText targetWeight = (EditText) findViewById(R.id.target);
+        editor.putString("targetWeight", barWeight.getText().toString());
+
+        editor.apply();
+        //show save toast
+        displayToast("Saved", Toast.LENGTH_SHORT);
+    }
+
+    /**
+     * Loads all the data from SharedPreferences and puts it into the UI
+     * Then displays a toast that says "Loaded"
+     * @param view the current view
+     */
+    public void loadWeights(View view)
+    {
+        //make a shared preferences
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+
+        //set the bar weight
+        EditText barWeight = (EditText) findViewById(R.id.bar);
+        String barString = sharedPref.getString("barWeight", "");
+        barWeight.setText(barString);
+
+        //set the available weights and multipliers
+        for(int i = 1; i <= MAX_NUM_OF_WEIGHTS; i++)
+        {
+            EditText weight = getWeighRef(i);
+            Spinner multiplier = getMultiplierRef(i);
+
+            String weightValue = sharedPref.getString("weight" + i, "");
+            int multiplierPos = sharedPref.getInt("multiplier" + i, 0);
+
+            weight.setText(weightValue);
+            multiplier.setSelection(multiplierPos);
+        }
+
+        //set the target
+        EditText targetWeight = (EditText) findViewById(R.id.target);
+        String targetString = sharedPref.getString("targetWeight", "");
+        targetWeight.setText(targetString);
+
+        //show load toast
+        Context context = getApplicationContext();
+        CharSequence text = "Loaded";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
 
     /**
      * On press of Calculate button it will store the weight of the bar
@@ -144,12 +232,7 @@ public class WeightCalculator extends ActionBarActivity
         else
         {
             //If the user enters invalid numbers for target or bar display a warning toast
-            Context context = getApplicationContext();
-            CharSequence text = "Numbers not recognised try again";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            displayToast("Numbers not recognised try again", Toast.LENGTH_SHORT);
         }
     }
 
