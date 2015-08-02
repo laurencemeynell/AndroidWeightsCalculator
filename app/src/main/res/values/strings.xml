@@ -9,6 +9,8 @@
     <string name="title_activity_display_results">Weights needed each side</string>
     <string name="save_button">Save</string>
     <string name="load_button">Load</string>
+    <string name="just_bar">Just the bar</string>
+    <string name="can_not_make">Can\'t make target. Displaying nearest weight under target</string>
     <string-array name="weight_multiplier">
         <item>2</item>
         <item>4</item>

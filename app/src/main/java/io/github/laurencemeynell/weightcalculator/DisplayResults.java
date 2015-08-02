@@ -2,12 +2,14 @@ package io.github.laurencemeynell.weightcalculator;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,6 +58,9 @@ public class DisplayResults extends ActionBarActivity
 
         //weightNumber used to count which UI element I am on
         int weightNumber = 1;
+        //anyWeightsUsed will tell if any weights were used to achieve target
+        boolean anyWeightsUsed = false;
+
         String packageName = getPackageName();
         //display each weight needed in a new UI element
         for(double eachWeight : weightsNeededForTarget.keySet())
@@ -83,17 +88,30 @@ public class DisplayResults extends ActionBarActivity
                 multiplier.setText(" " + weightsNeededForTarget.get(eachWeight));
                 multiplier.setVisibility(View.VISIBLE);
 
+                anyWeightsUsed = true;
+
                 //increment weightNumber for the next weight
                 weightNumber++;
             }
         }
 
-        //If that target was not achieveable display a toast.  Later I will add something better
-        // to warn the user
+        //If no weights were used, display "Just the bar"
+        if(!anyWeightsUsed)
+        {
+            TextView justBarTextId = (TextView) findViewById(R.id.weight1);
+            justBarTextId.setText(getResources().getString(R.string.just_bar));
+            justBarTextId.setVisibility(View.VISIBLE);
+        }
+
+        //If that target was not achieveable display a toast and set the background margin red.
+        // Later I will add something better to warn the user
         if(!targetMet)
         {
+            RelativeLayout margin = (RelativeLayout) findViewById(R.id.displayResultsMargin);
+            margin.setBackgroundColor(Color.RED);
+
             Context context = getApplicationContext();
-            CharSequence text = "Target not achieveable. Displaying nearest you can make";
+            CharSequence text = getResources().getString(R.string.can_not_make);
             int duration = Toast.LENGTH_LONG;
 
             Toast toast = Toast.makeText(context, text, duration);

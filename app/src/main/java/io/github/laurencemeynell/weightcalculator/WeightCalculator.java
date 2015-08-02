@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import org.apache.commons.lang3.math.NumberUtils;
@@ -19,6 +20,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 public class WeightCalculator extends ActionBarActivity
 {
     public static final int MAX_NUM_OF_WEIGHTS = 6;
+    private String packageName;
 
     private WeightsCalc weightsCalc;
     private TreeMap<Double, Integer> availableWeights;
@@ -28,6 +30,7 @@ public class WeightCalculator extends ActionBarActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weight_calculator);
+        packageName  = getPackageName();
     }
 
     /**
@@ -65,6 +68,39 @@ public class WeightCalculator extends ActionBarActivity
     }
 
     /**
+     * Returns a reference to the EditText representing the weight of a weight set
+     * at the specific line index
+     * @param index the weight set's line index on the UI. 1 for 1st line, 2 for 2nd etc
+     * @return the reference to the EditText
+     */
+    private EditText getWeighRef(int index)
+    {
+        String packageName = getPackageName();
+
+        String weightEditTextId = "weight" + (index);
+        int weightResId = getResources().getIdentifier(weightEditTextId, "id", packageName);
+        EditText weight = (EditText) findViewById(weightResId);
+
+        return weight;
+    }
+
+    /**
+     * Returns a ference to the Spinner representing the number of a weight set
+     * at the specified line index
+     * @param index the multiplier's line index on the UI.  1 for 1st, 2 for 2nd etc
+     * @return the reference to the Spinner
+     */
+    private Spinner getMultiplierRef(int index)
+    {
+        String spinnerId = "multiplier" + (index);
+        int spinnerResId = getResources().getIdentifier(spinnerId, "id", packageName);
+        Spinner multiplier = (Spinner) findViewById(spinnerResId);
+
+        return multiplier;
+    }
+
+
+    /**
      * On press of Calculate button it will store the weight of the bar
      * and all available weights.  Then it will then pass these values
      * to DisplayResults.
@@ -78,24 +114,12 @@ public class WeightCalculator extends ActionBarActivity
         availableWeights = new TreeMap<>();
         Double barDouble;
 
-        //make arrays for the weights and weight multiplier UI elements
-        EditText[] weights = new EditText[MAX_NUM_OF_WEIGHTS];
-        Spinner[] spinners = new Spinner[MAX_NUM_OF_WEIGHTS];
-
-        //for each element, read the values pass to inputWeights
-        for(int i = 0; i < MAX_NUM_OF_WEIGHTS; i++)
+        //for each weight/multiplier UI pair, get a reference and pass to inputWeights
+        for(int i = 1; i <= MAX_NUM_OF_WEIGHTS; i++)
         {
-            String packageName = getPackageName();
-
-            String weightEditTextId = "weight" + (i + 1);
-            int weightResId = getResources().getIdentifier(weightEditTextId, "id", packageName);
-            weights[i] = (EditText) findViewById(weightResId);
-
-            String spinnerId = "multiplier" + (i + 1);
-            int spinnerResId = getResources().getIdentifier(spinnerId, "id", packageName);
-            spinners[i] = (Spinner) findViewById(spinnerResId);
-
-            inputWeights(weights[i], spinners[i]);
+            EditText weight = getWeighRef(i);
+            Spinner multiplier = getMultiplierRef(i);
+            inputWeights(weight, multiplier);
         }
 
         //Get the bar weight
