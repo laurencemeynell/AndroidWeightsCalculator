@@ -22,7 +22,6 @@ public class WeightCalculator extends ActionBarActivity
     public static final int MAX_NUM_OF_WEIGHTS = 6;
     private String packageName;
 
-    private WeightsCalc weightsCalc;
     private TreeMap<Double, Integer> availableWeights;
 
     @Override
@@ -110,7 +109,6 @@ public class WeightCalculator extends ActionBarActivity
     public void calculateWeights(View view)
     {
         //initialze variables
-        weightsCalc = new WeightsCalc();
         availableWeights = new TreeMap<>();
         Double barDouble;
 
@@ -135,7 +133,6 @@ public class WeightCalculator extends ActionBarActivity
         {
             Double targetDouble = Double.parseDouble(targetString);
             barDouble = Double.parseDouble(barString);
-            boolean targetMet = weightsCalc.calculateWeights(targetDouble);
 
             //Start DisplayResults and pass available weights, bar and target weight
             Intent displayResultsIntent = new Intent(this, DisplayResults.class);
