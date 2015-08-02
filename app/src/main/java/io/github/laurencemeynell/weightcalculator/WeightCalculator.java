@@ -138,7 +138,7 @@ public class WeightCalculator extends ActionBarActivity
 
         //get the target
         EditText targetWeight = (EditText) findViewById(R.id.target);
-        editor.putString("targetWeight", barWeight.getText().toString());
+        editor.putString("targetWeight", targetWeight.getText().toString());
 
         editor.apply();
         //show save toast
