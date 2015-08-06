@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Laurence\'s Weight Calculator</string>
+    <string name="app_name">Barbell Weight Calculator</string>
     <string name="action_settings">Settings</string>
-    <string name="available_weights">Available Weights</string>
+    <string name="available_weights">Add/Remove Available Weights</string>
     <string name="bar_weight">Bar Weight</string>
     <string name="target_weight">Target Weight</string>
     <string name="calculate">Calculate</string>
@@ -11,6 +11,8 @@
     <string name="load_button">Load</string>
     <string name="just_bar">Just the bar</string>
     <string name="can_not_make">Can\'t make target. Displaying nearest weight under target</string>
+    <string name="add_weight">+</string>
+    <string name="remove_weight">-</string>
     <string-array name="weight_multiplier">
         <item>2</item>
         <item>4</item>
@@ -23,7 +25,4 @@
         <item>18</item>
         <item>20</item>
     </string-array>
-
-
-    <string name="hello_world">Hello world!</string>
 </resources>
