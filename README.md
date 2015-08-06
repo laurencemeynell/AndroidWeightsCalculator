@@ -4,4 +4,4 @@ I'm learning Android so I'm going to implement my previous WeightsCalc repo with
 Perhaps I'll pretty it up later.
 
 Icon made by [Freepik](http://www.flaticon.com/authors/freepik) from www.flaticon.com
-is licensed by [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/)
+is licensed by [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/) icon was edited by me
