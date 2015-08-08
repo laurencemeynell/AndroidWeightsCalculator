@@ -1,18 +1,26 @@
 <resources>
     <string name="app_name">Barbell Weight Calculator</string>
-    <string name="action_settings">Settings</string>
-    <string name="available_weights">Add/Remove Available Weights</string>
+    <string name="available_weights">Add/Remove Weights</string>
     <string name="bar_weight">Bar Weight</string>
     <string name="target_weight">Target Weight</string>
     <string name="calculate">Calculate</string>
     <string name="x">*</string>
-    <string name="title_activity_display_results">Weights needed each side</string>
+    <string name="title_activity_display_results">Weights each side</string>
     <string name="save_button">Save</string>
     <string name="load_button">Load</string>
     <string name="just_bar">Just the bar</string>
     <string name="can_not_make">Can\'t make target. Displaying nearest weight under target</string>
     <string name="add_weight">+</string>
     <string name="remove_weight">-</string>
+    <string name="help">Help</string>
+    <string name="about">About the author</string>
+    <string name="help_content">
+        Explanation of how to use the app
+    </string>
+    <string name="about_content">
+        Text describing me
+        And why I created this app
+    </string>
     <string-array name="weight_multiplier">
         <item>2</item>
         <item>4</item>
@@ -25,4 +33,9 @@
         <item>18</item>
         <item>20</item>
     </string-array>
+    <string name="title_activity_help">Help</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_display_text">DisplayText</string>
 </resources>

@@ -21,55 +21,55 @@
         android:id="@+id/barWeights"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/target"
-        android:layout_centerHorizontal="true"
         android:text="@string/bar_weight"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_above="@+id/target"
+        android:layout_toLeftOf="@+id/space"
+        android:layout_toStartOf="@+id/space"/>
 
     <EditText
         android:id="@+id/bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/barWeights"
-        android:layout_alignLeft="@+id/barWeights"
-        android:layout_alignRight="@+id/barWeights"
-        android:layout_below="@+id/barWeights"
         android:ems="3"
         android:gravity="center"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/barWeights"
+        android:layout_toLeftOf="@+id/space"
+        android:layout_toStartOf="@+id/space"/>
 
     <TextView
         android:id="@+id/availableWeights"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/available_weights"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@+id/bar"
         android:layout_centerHorizontal="true"
-        android:text="@string/available_weights"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
+        android:layout_marginTop="8dp"/>
 
     <TextView
         android:id="@+id/targetWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/calculate"
-        android:layout_centerHorizontal="true"
         android:text="@string/target_weight"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/calculate"
+        android:layout_toRightOf="@+id/space"
+        android:layout_toEndOf="@+id/space"/>
 
     <EditText
         android:id="@+id/target"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/bar"
-        android:layout_alignLeft="@+id/bar"
-        android:layout_alignRight="@+id/bar"
-        android:layout_alignStart="@+id/bar"
-        android:layout_below="@+id/targetWeight"
         android:ems="3"
         android:gravity="center"
         android:inputType="numberDecimal"
         android:nextFocusLeft="@id/target"
-        android:nextFocusUp="@id/target"/>
+        android:nextFocusUp="@id/target"
+        android:layout_below="@+id/targetWeight"
+        android:layout_alignLeft="@+id/targetWeight"
+        android:layout_alignStart="@+id/targetWeight"/>
 
     <Button
         android:id="@+id/calculate"
@@ -126,11 +126,12 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/available_rel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:text="@string/remove_weight"
-        android:onClick="removeWeight"/>
+        android:onClick="removeWeight"
+        android:layout_alignBaseline="@+id/availableWeights"
+        android:layout_alignBottom="@+id/availableWeights"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 
 
     <ScrollView
@@ -655,5 +656,16 @@
 
         </RelativeLayout>
     </ScrollView>
+
+    <Space
+        android:layout_width="20px"
+        android:layout_height="20px"
+        android:id="@+id/space"
+        android:layout_below="@+id/calculate"
+        android:layout_alignLeft="@+id/calculate"
+        android:layout_alignStart="@+id/calculate"
+        android:layout_alignRight="@+id/calculate"
+        android:layout_alignEnd="@+id/calculate"
+        android:layout_alignBottom="@+id/target"/>
 </RelativeLayout>
 

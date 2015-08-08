@@ -18,7 +18,11 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 public class WeightCalculator extends ActionBarActivity
 {
-    public int NUM_OF_WEIGHTS = 1;
+    public static final String TEXT_TO_DISPLAY = "display";
+    public static final String HELP = "help";
+    public static final String ABOUT = "about";
+
+    public int numOfWeights = 1;
     private String packageName;
 
     private TreeMap<Double, Integer> availableWeights;
@@ -35,7 +39,7 @@ public class WeightCalculator extends ActionBarActivity
             for (int i = 1; i <= numberOfWeights; i++)
             {
                 changeWeightSetVisibility(i, View.VISIBLE);
-                NUM_OF_WEIGHTS = numberOfWeights;
+                numOfWeights = numberOfWeights;
             }
         }
     }
@@ -44,7 +48,7 @@ public class WeightCalculator extends ActionBarActivity
     public void onSaveInstanceState(Bundle savedInstanceState)
     {
         super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putInt("numberOfWeights", NUM_OF_WEIGHTS);
+        savedInstanceState.putInt("numberOfWeights", numOfWeights);
     }
 
     /**
@@ -167,11 +171,11 @@ public class WeightCalculator extends ActionBarActivity
      */
     public void addWeight(View view)
     {
-        if(NUM_OF_WEIGHTS < 15)
+        if(numOfWeights < 15)
         {
-            changeWeightSetVisibility(NUM_OF_WEIGHTS + 1, View.VISIBLE);
+            changeWeightSetVisibility(numOfWeights + 1, View.VISIBLE);
 
-            NUM_OF_WEIGHTS++;
+            numOfWeights++;
         }
         else
         {
@@ -188,19 +192,19 @@ public class WeightCalculator extends ActionBarActivity
      */
     public void removeWeight(View view)
     {
-        if(NUM_OF_WEIGHTS > 0)
+        if(numOfWeights > 0)
         {
-            changeWeightSetVisibility(NUM_OF_WEIGHTS, View.INVISIBLE);
+            changeWeightSetVisibility(numOfWeights, View.INVISIBLE);
 
-            EditText weight = getWeighRef(NUM_OF_WEIGHTS);
-            TextView theX = getXRef(NUM_OF_WEIGHTS);
-            Spinner multiplier = getMultiplierRef(NUM_OF_WEIGHTS);
+            EditText weight = getWeighRef(numOfWeights);
+            TextView theX = getXRef(numOfWeights);
+            Spinner multiplier = getMultiplierRef(numOfWeights);
 
             weight.setText(null);
             theX.setText(null);
             multiplier.setSelection(0);
 
-            NUM_OF_WEIGHTS--;
+            numOfWeights--;
         }
         else
         {
@@ -224,7 +228,7 @@ public class WeightCalculator extends ActionBarActivity
         editor.putString("barWeight", barWeight.getText().toString());
 
         //get the weights and multipliers
-        for(int i = 1; i <= NUM_OF_WEIGHTS; i++)
+        for(int i = 1; i <= numOfWeights; i++)
         {
             EditText weight = getWeighRef(i);
             Spinner multiplier = getMultiplierRef(i);
@@ -237,7 +241,7 @@ public class WeightCalculator extends ActionBarActivity
         editor.putString("targetWeight", targetWeight.getText().toString());
 
         //save the number of visible weight sets
-        editor.putInt("numberOfWeights", NUM_OF_WEIGHTS);
+        editor.putInt("numberOfWeights", numOfWeights);
 
         editor.apply();
         //show save toast
@@ -279,7 +283,7 @@ public class WeightCalculator extends ActionBarActivity
             multiplier.setSelection(multiplierPos);
         }
 
-        NUM_OF_WEIGHTS = savedWeightSets;
+        numOfWeights = savedWeightSets;
 
         //set the target
         EditText targetWeight = (EditText) findViewById(R.id.target);
@@ -306,7 +310,7 @@ public class WeightCalculator extends ActionBarActivity
         Double barDouble;
 
         //for each weight/multiplier UI pair, get a reference and pass to inputWeights
-        for(int i = 1; i <= NUM_OF_WEIGHTS; i++)
+        for(int i = 1; i <= numOfWeights; i++)
         {
             EditText weight = getWeighRef(i);
             Spinner multiplier = getMultiplierRef(i);
@@ -357,12 +361,20 @@ public class WeightCalculator extends ActionBarActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
+        switch (id)
         {
-            return true;
+            case R.id.help:
+                Intent helpIntent = new Intent(this, DisplayText.class);
+                helpIntent.putExtra(TEXT_TO_DISPLAY, HELP);
+                startActivity(helpIntent);
+                return true;
+            case R.id.about:
+                Intent aboutIntent = new Intent(this, DisplayText.class);
+                aboutIntent.putExtra(TEXT_TO_DISPLAY, ABOUT);
+                startActivity(aboutIntent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }

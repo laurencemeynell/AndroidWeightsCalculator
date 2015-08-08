@@ -1,5 +1,6 @@
 package io.github.laurencemeynell.weightcalculator;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -39,6 +40,9 @@ public class DisplayResults extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_results);
 
+        //disable back arrow on action bar
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
         Intent theIntent = getIntent();
 
         //retrieve HashMap referenced by THE_WEIGHTS and cast it into availableWeights
@@ -63,10 +67,10 @@ public class DisplayResults extends ActionBarActivity
 
         String packageName = getPackageName();
         //display each weight needed in a new UI element
-        for(double eachWeight : weightsNeededForTarget.keySet())
+        for (double eachWeight : weightsNeededForTarget.keySet())
         {
             //If the weight is needed to meet the target
-            if(weightsNeededForTarget.get(eachWeight) != 0)
+            if (weightsNeededForTarget.get(eachWeight) != 0)
             {
                 //get the weight TextView and set it to the map key, make visible
                 String weightTextId = "weight" + weightNumber;
@@ -96,7 +100,7 @@ public class DisplayResults extends ActionBarActivity
         }
 
         //If no weights were used, display "Just the bar"
-        if(!anyWeightsUsed)
+        if (!anyWeightsUsed)
         {
             TextView justBarTextId = (TextView) findViewById(R.id.weight1);
             justBarTextId.setText(getResources().getString(R.string.just_bar));
@@ -105,7 +109,7 @@ public class DisplayResults extends ActionBarActivity
 
         //If that target was not achieveable display a toast and set the background margin red.
         // Later I will add something better to warn the user
-        if(!targetMet)
+        if (!targetMet)
         {
             RelativeLayout margin = (RelativeLayout) findViewById(R.id.displayResultsMargin);
             margin.setBackgroundColor(Color.RED);
@@ -127,20 +131,5 @@ public class DisplayResults extends ActionBarActivity
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
-        {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

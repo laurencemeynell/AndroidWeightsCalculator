@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.github.laurencemeynell.weightcalculator" >
+<manifest package="io.github.laurencemeynell.weightcalculator"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".WeightCalculator"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".DisplayResults"
             android:label="@string/title_activity_display_results"
-            android:parentActivityName=".WeightCalculator" >
+            android:parentActivityName=".WeightCalculator">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="io.github.laurencemeynell.weightcalculator.WeightCalculator" />
+                android:value="io.github.laurencemeynell.weightcalculator.WeightCalculator"/>
+        </activity>
+        <activity
+            android:name=".DisplayText"
+            android:label="@string/title_activity_display_text"
+            android:parentActivityName=".WeightCalculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.github.laurencemeynell.weightcalculator.WeightCalculator"/>
         </activity>
     </application>
 
