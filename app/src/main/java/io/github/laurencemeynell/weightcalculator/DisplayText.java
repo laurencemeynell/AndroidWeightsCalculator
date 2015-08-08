@@ -1,13 +1,12 @@
 package io.github.laurencemeynell.weightcalculator;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
 
-public class DisplayText extends ActionBarActivity
+public class DisplayText extends AppCompatActivity
 {
 
     @Override
@@ -30,6 +29,7 @@ public class DisplayText extends ActionBarActivity
             case WeightCalculator.ABOUT:
                 setTitle(getResources().getString(R.string.about));
                 content.setText(getResources().getString(R.string.about_content));
+
                 break;
         }
     }

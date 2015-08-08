@@ -1,27 +1,21 @@
 package io.github.laurencemeynell.weightcalculator;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.TreeMap;
 
 
-public class DisplayResults extends ActionBarActivity
+public class DisplayResults extends AppCompatActivity
 {
     public static final String THE_WEIGHTS = "availableWeightsExtra";
     public static final String BAR_WEIGHT = "theBarWeight";

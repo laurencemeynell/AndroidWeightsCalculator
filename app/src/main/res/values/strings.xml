@@ -15,11 +15,20 @@
     <string name="help">Help</string>
     <string name="about">About the author</string>
     <string name="help_content">
-        Explanation of how to use the app
+Barbell Weights Calculator is a simple app which tells you how many weights to put on each side of your bar to achieve a target weight.  It will work the same whether you\'re using kg or lb weights.\n\n
+How to use:\n
+1. Tap just above the line under "Bar Weight" then enter the weight of your bar using the keyboard.\n\n
+2. Under "Add/Remove Weights" tap the line and enter the weight of your first set of weights.
+Now tap the number "2" and choose how many of those weights you have.  So if you had four 20kg weights you\'d tap the line and type 20, then tap the 2 and select 4.\n\n
+3. If you have another set of weights tap the button with a plus sign and another line will appear for you to enter a new set of weights.\n\n
+4. When you\'re finished entering your available weights you can tap the Save button to save everything you\'ve entered for next time.  Then when you start the app again you can just tap the "Load" button.\n\n
+5. To calculate a target weight tap the line under "Target Weight" and enter the weight you want to achieve then tap calculate. Another screen will pop up telling you how many of your weights you should put on each side of the bar to achieve your target.\n\n
+If your target is unachievable with your available weights then the margin around the screen will turn red and you\'ll see a warning popup.  In that case the app will show you how to make the nearest weight you can that\'s under your target weight.
     </string>
     <string name="about_content">
-        Text describing me
-        And why I created this app
+This app was created by Laurence Meynell.  The app icon was made by Freepik from www.flaticon.com it is licensed by CC BY 3.0.  The icon was edited by Laurence Meynell.\n\n
+This is my first android app.  I created it because I enjoy weightlifting and learning to code.  If you want to follow the development of this and subsequent apps my GitHub profile is github.com/laurencemeynell \n\n
+If you have any comments, suggestions or if you find any bugs please email me laurence.meynell@gmail.com
     </string>
     <string-array name="weight_multiplier">
         <item>2</item>
@@ -33,9 +42,5 @@
         <item>18</item>
         <item>20</item>
     </string-array>
-    <string name="title_activity_help">Help</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
     <string name="title_activity_display_text">DisplayText</string>
 </resources>

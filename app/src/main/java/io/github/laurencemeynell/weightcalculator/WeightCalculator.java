@@ -3,8 +3,8 @@ package io.github.laurencemeynell.weightcalculator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,10 +13,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Scanner;
 import java.util.TreeMap;
-import org.apache.commons.lang3.math.NumberUtils;
 
-public class WeightCalculator extends ActionBarActivity
+public class WeightCalculator extends AppCompatActivity
 {
     public static final String TEXT_TO_DISPLAY = "display";
     public static final String HELP = "help";
@@ -81,9 +81,10 @@ public class WeightCalculator extends ActionBarActivity
         Integer currentMultiplier;
 
         currentString = aWeight.getText().toString();
-        if(NumberUtils.isNumber(currentString))
+        Scanner weightScanner = new Scanner(currentString);
+        if(weightScanner.hasNextDouble())
         {
-            currentWeight = Double.parseDouble(currentString);
+            currentWeight = weightScanner.nextDouble();
             currentMultiplier = Integer.parseInt(String.valueOf(aMultipler.getSelectedItem()));
             //if the weight already exists in the map add the multiplier to the stored weight
             if(availableWeights.containsKey(currentWeight))
@@ -174,7 +175,6 @@ public class WeightCalculator extends ActionBarActivity
         if(numOfWeights < 15)
         {
             changeWeightSetVisibility(numOfWeights + 1, View.VISIBLE);
-
             numOfWeights++;
         }
         else
@@ -197,11 +197,9 @@ public class WeightCalculator extends ActionBarActivity
             changeWeightSetVisibility(numOfWeights, View.INVISIBLE);
 
             EditText weight = getWeighRef(numOfWeights);
-            TextView theX = getXRef(numOfWeights);
             Spinner multiplier = getMultiplierRef(numOfWeights);
 
             weight.setText(null);
-            theX.setText(null);
             multiplier.setSelection(0);
 
             numOfWeights--;
@@ -307,7 +305,6 @@ public class WeightCalculator extends ActionBarActivity
     {
         //initialze variables
         availableWeights = new TreeMap<>();
-        Double barDouble;
 
         //for each weight/multiplier UI pair, get a reference and pass to inputWeights
         for(int i = 1; i <= numOfWeights; i++)
@@ -326,10 +323,12 @@ public class WeightCalculator extends ActionBarActivity
         String targetString = targetWeight.getText().toString();
 
         //If the target and bar weights are valid, make an intent for DisplayResults
-        if(NumberUtils.isNumber(targetString) || NumberUtils.isNumber(barString))
+        Scanner targetScanner = new Scanner(targetString);
+        Scanner barScanner = new Scanner(barString);
+        if(targetScanner.hasNextDouble() && barScanner.hasNextDouble())
         {
-            Double targetDouble = Double.parseDouble(targetString);
-            barDouble = Double.parseDouble(barString);
+            Double targetDouble = targetScanner.nextDouble();
+            Double barDouble = barScanner.nextDouble();
 
             //Start DisplayResults and pass available weights, bar and target weight
             Intent displayResultsIntent = new Intent(this, DisplayResults.class);
