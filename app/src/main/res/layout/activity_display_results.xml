@@ -193,14 +193,14 @@
                     android:visibility="gone"/>
 
                 <TextView
-                    android:id="@+id/weight6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/weight5"
-                    android:layout_alignRight="@+id/weight5"
-                    android:layout_below="@+id/weight5"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:visibility="gone"/>
+                android:id="@+id/weight6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/weight5"
+                android:layout_alignRight="@+id/weight5"
+                android:layout_below="@+id/weight5"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:visibility="gone"/>
 
                 <TextView
                     android:id="@+id/x6"
@@ -219,6 +219,276 @@
                     android:layout_alignLeft="@+id/multiplier5"
                     android:layout_alignStart="@+id/multiplier5"
                     android:layout_below="@+id/multiplier5"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/weight7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/weight6"
+                    android:layout_alignRight="@+id/weight6"
+                    android:layout_below="@+id/weight6"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/x7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/weight6"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/x"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/multiplier7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/multiplier6"
+                    android:layout_alignStart="@+id/multiplier6"
+                    android:layout_below="@+id/multiplier6"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/weight8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/weight7"
+                    android:layout_alignRight="@+id/weight7"
+                    android:layout_below="@+id/weight7"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/x8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/weight7"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/x"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/multiplier8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/multiplier7"
+                    android:layout_alignStart="@+id/multiplier7"
+                    android:layout_below="@+id/multiplier7"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/weight9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/weight8"
+                    android:layout_alignRight="@+id/weight8"
+                    android:layout_below="@+id/weight8"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/x9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/weight8"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/x"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/multiplier9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/multiplier8"
+                    android:layout_alignStart="@+id/multiplier8"
+                    android:layout_below="@+id/multiplier8"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                android:id="@+id/weight10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/weight9"
+                android:layout_alignRight="@+id/weight9"
+                android:layout_below="@+id/weight9"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/x10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/weight9"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/x"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/multiplier10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/multiplier9"
+                    android:layout_alignStart="@+id/multiplier9"
+                    android:layout_below="@+id/multiplier9"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                android:id="@+id/weight11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/weight10"
+                android:layout_alignRight="@+id/weight10"
+                android:layout_below="@+id/weight10"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/x11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/weight10"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/x"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/multiplier11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/multiplier10"
+                    android:layout_alignStart="@+id/multiplier10"
+                    android:layout_below="@+id/multiplier10"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/weight12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/weight11"
+                    android:layout_alignRight="@+id/weight11"
+                    android:layout_below="@+id/weight11"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/x12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/weight11"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/x"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/multiplier12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/multiplier11"
+                    android:layout_alignStart="@+id/multiplier11"
+                    android:layout_below="@+id/multiplier11"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                android:id="@+id/weight13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/weight12"
+                android:layout_alignRight="@+id/weight12"
+                android:layout_below="@+id/weight12"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/x13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/weight12"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/x"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/multiplier13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/multiplier12"
+                    android:layout_alignStart="@+id/multiplier12"
+                    android:layout_below="@+id/multiplier12"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                android:id="@+id/weight14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/weight13"
+                android:layout_alignRight="@+id/weight13"
+                android:layout_below="@+id/weight13"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/x14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/weight13"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/x"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/multiplier14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/multiplier13"
+                    android:layout_alignStart="@+id/multiplier13"
+                    android:layout_below="@+id/multiplier13"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/weight15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/weight14"
+                    android:layout_alignRight="@+id/weight14"
+                    android:layout_below="@+id/weight14"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/x15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/weight14"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/x"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/multiplier15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/multiplier14"
+                    android:layout_alignStart="@+id/multiplier14"
+                    android:layout_below="@+id/multiplier14"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:visibility="gone"/>
 

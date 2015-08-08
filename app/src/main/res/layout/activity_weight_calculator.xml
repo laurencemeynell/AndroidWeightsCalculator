@@ -183,7 +183,8 @@
                 android:layout_below="@+id/weight1"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x2"
@@ -193,7 +194,8 @@
                 android:layout_alignBottom="@+id/weight2"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier2"
@@ -203,7 +205,8 @@
                 android:layout_alignBottom="@+id/weight2"
                 android:layout_toEndOf="@+id/x2"
                 android:layout_toRightOf="@+id/x2"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight3"
@@ -214,7 +217,8 @@
                 android:layout_below="@+id/weight2"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x3"
@@ -224,7 +228,8 @@
                 android:layout_alignBottom="@+id/weight3"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier3"
@@ -234,7 +239,8 @@
                 android:layout_alignBottom="@+id/weight3"
                 android:layout_toEndOf="@+id/x3"
                 android:layout_toRightOf="@+id/x3"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight4"
@@ -245,7 +251,8 @@
                 android:layout_below="@+id/weight3"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x4"
@@ -255,7 +262,8 @@
                 android:layout_alignBottom="@+id/weight4"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier4"
@@ -265,7 +273,8 @@
                 android:layout_alignBottom="@+id/weight4"
                 android:layout_toEndOf="@+id/x4"
                 android:layout_toRightOf="@+id/x4"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight5"
@@ -276,7 +285,8 @@
                 android:layout_below="@+id/weight4"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x5"
@@ -286,7 +296,8 @@
                 android:layout_alignBottom="@+id/weight5"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier5"
@@ -296,7 +307,8 @@
                 android:layout_alignBottom="@+id/weight5"
                 android:layout_toEndOf="@+id/x5"
                 android:layout_toRightOf="@+id/x5"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight6"
@@ -307,7 +319,8 @@
                 android:layout_below="@+id/weight5"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x6"
@@ -317,7 +330,8 @@
                 android:layout_alignBottom="@+id/weight6"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier6"
@@ -327,7 +341,8 @@
                 android:layout_alignBottom="@+id/weight6"
                 android:layout_toEndOf="@+id/x6"
                 android:layout_toRightOf="@+id/x6"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight7"
@@ -338,7 +353,8 @@
                 android:layout_below="@+id/weight6"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x7"
@@ -348,7 +364,8 @@
                 android:layout_alignBottom="@+id/weight7"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier7"
@@ -358,7 +375,8 @@
                 android:layout_alignBottom="@+id/weight7"
                 android:layout_toEndOf="@+id/x7"
                 android:layout_toRightOf="@+id/x7"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight8"
@@ -369,7 +387,8 @@
                 android:layout_below="@+id/weight7"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x8"
@@ -379,7 +398,8 @@
                 android:layout_alignBottom="@+id/weight8"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier8"
@@ -389,7 +409,8 @@
                 android:layout_alignBottom="@+id/weight8"
                 android:layout_toEndOf="@+id/x8"
                 android:layout_toRightOf="@+id/x8"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight9"
@@ -400,7 +421,8 @@
                 android:layout_below="@+id/weight8"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x9"
@@ -410,7 +432,8 @@
                 android:layout_alignBottom="@+id/weight9"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier9"
@@ -420,7 +443,8 @@
                 android:layout_alignBottom="@+id/weight9"
                 android:layout_toEndOf="@+id/x9"
                 android:layout_toRightOf="@+id/x9"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight10"
@@ -431,7 +455,8 @@
                 android:layout_below="@+id/weight9"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x10"
@@ -441,7 +466,8 @@
                 android:layout_alignBottom="@+id/weight10"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier10"
@@ -451,7 +477,8 @@
                 android:layout_alignBottom="@+id/weight10"
                 android:layout_toEndOf="@+id/x10"
                 android:layout_toRightOf="@+id/x10"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight11"
@@ -462,7 +489,8 @@
                 android:layout_below="@+id/weight10"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x11"
@@ -472,7 +500,8 @@
                 android:layout_alignBottom="@+id/weight11"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier11"
@@ -482,7 +511,8 @@
                 android:layout_alignBottom="@+id/weight11"
                 android:layout_toEndOf="@+id/x11"
                 android:layout_toRightOf="@+id/x11"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight12"
@@ -493,7 +523,8 @@
                 android:layout_below="@+id/weight11"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x12"
@@ -503,7 +534,8 @@
                 android:layout_alignBottom="@+id/weight12"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier12"
@@ -513,7 +545,8 @@
                 android:layout_alignBottom="@+id/weight12"
                 android:layout_toEndOf="@+id/x12"
                 android:layout_toRightOf="@+id/x12"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight13"
@@ -524,7 +557,8 @@
                 android:layout_below="@+id/weight12"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x13"
@@ -534,7 +568,8 @@
                 android:layout_alignBottom="@+id/weight13"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier13"
@@ -544,7 +579,8 @@
                 android:layout_alignBottom="@+id/weight13"
                 android:layout_toEndOf="@+id/x13"
                 android:layout_toRightOf="@+id/x13"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight14"
@@ -555,7 +591,8 @@
                 android:layout_below="@+id/weight13"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x14"
@@ -565,7 +602,8 @@
                 android:layout_alignBottom="@+id/weight14"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier14"
@@ -575,7 +613,8 @@
                 android:layout_alignBottom="@+id/weight14"
                 android:layout_toEndOf="@+id/x14"
                 android:layout_toRightOf="@+id/x14"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/weight15"
@@ -586,7 +625,8 @@
                 android:layout_below="@+id/weight14"
                 android:ems="3"
                 android:gravity="center"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/x15"
@@ -596,7 +636,8 @@
                 android:layout_alignBottom="@+id/weight15"
                 android:layout_centerHorizontal="true"
                 android:text="@string/x"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/multiplier15"
@@ -606,7 +647,8 @@
                 android:layout_alignBottom="@+id/weight15"
                 android:layout_toEndOf="@+id/x15"
                 android:layout_toRightOf="@+id/x15"
-                android:entries="@array/weight_multiplier"/>
+                android:entries="@array/weight_multiplier"
+                android:visibility="gone"/>
 
 
         </RelativeLayout>
