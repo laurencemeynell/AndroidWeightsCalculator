@@ -13,14 +13,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Map;
-import java.util.SortedMap;
 import java.util.TreeMap;
 import org.apache.commons.lang3.math.NumberUtils;
 
 public class WeightCalculator extends ActionBarActivity
 {
-    public static final int MAX_NUM_OF_WEIGHTS = 6;
+    public int NUM_OF_WEIGHTS = 1;
     private String packageName;
 
     private TreeMap<Double, Integer> availableWeights;
@@ -31,6 +29,22 @@ public class WeightCalculator extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weight_calculator);
         packageName  = getPackageName();
+        if(savedInstanceState != null)
+        {
+            int numberOfWeights = savedInstanceState.getInt("numberOfWeights");
+            for (int i = 1; i <= numberOfWeights; i++)
+            {
+                changeWeightSetVisibility(i, View.VISIBLE);
+                NUM_OF_WEIGHTS = numberOfWeights;
+            }
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState)
+    {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("numberOfWeights", NUM_OF_WEIGHTS);
     }
 
     /**
@@ -84,7 +98,7 @@ public class WeightCalculator extends ActionBarActivity
      * Returns a reference to the EditText representing the weight of a weight set
      * at the specific line index
      * @param index the weight set's line index on the UI. 1 for 1st line, 2 for 2nd etc
-     * @return the reference to the EditText
+     * @return the reference to the EditText UI element
      */
     private EditText getWeighRef(int index)
     {
@@ -97,11 +111,13 @@ public class WeightCalculator extends ActionBarActivity
         return weight;
     }
 
+
+
     /**
-     * Returns a ference to the Spinner representing the number of a weight set
+     * Returns a reference to the Spinner representing the number of a weight set
      * at the specified line index
      * @param index the multiplier's line index on the UI.  1 for 1st, 2 for 2nd etc
-     * @return the reference to the Spinner
+     * @return the reference to the Spinner UI element
      */
     private Spinner getMultiplierRef(int index)
     {
@@ -110,6 +126,86 @@ public class WeightCalculator extends ActionBarActivity
         Spinner multiplier = (Spinner) findViewById(spinnerResId);
 
         return multiplier;
+    }
+
+    /**
+     * Returns a reference to the TextView representing the "*" of a weight set
+     * at the specified line index
+     * @param index the *'s line index on the UI.  1 for 1st, 2 for 2nd etc
+     * @return the reference to the TextView UI element
+     */
+    private TextView getXRef(int index)
+    {
+        String xId = "x" + (index);
+        int xResId = getResources().getIdentifier(xId, "id", packageName);
+        TextView x = (TextView) findViewById(xResId);
+
+        return x;
+    }
+
+    /**
+     * Makes an available weight set visible or invisible depending on parameters
+     * @param index the index of the weight set to change, starting from 1
+     * @param visibility valid numbers are View.VISIBLE or View.INVISIBLE
+     */
+    private void changeWeightSetVisibility(int index, int visibility)
+    {
+        EditText weight = getWeighRef(index);
+        TextView theX = getXRef(index);
+        Spinner multiplier = getMultiplierRef(index);
+
+        weight.setVisibility(visibility);
+        theX.setVisibility(visibility);
+        multiplier.setVisibility(visibility);
+    }
+
+
+    /**
+     * If there are currently < 15 visible available weights addWeight will make another visible
+     * If there are 15 visible weights it will display a toast stating 15 is the maximum weights
+     * @param view the current view
+     */
+    public void addWeight(View view)
+    {
+        if(NUM_OF_WEIGHTS < 15)
+        {
+            changeWeightSetVisibility(NUM_OF_WEIGHTS + 1, View.VISIBLE);
+
+            NUM_OF_WEIGHTS++;
+        }
+        else
+        {
+            displayToast("Cannot add weight set.  15 is the maximum", Toast.LENGTH_LONG);
+        }
+    }
+
+    /**
+     * If there is currently > 1 visible available weights removeWeight will make the last one
+     * invisible and clear any user inputted data in it
+     * If there are 0 visible weights it will display a toast stating none are available and
+     * advise the user to add one
+     * @param view the current view
+     */
+    public void removeWeight(View view)
+    {
+        if(NUM_OF_WEIGHTS > 0)
+        {
+            changeWeightSetVisibility(NUM_OF_WEIGHTS, View.INVISIBLE);
+
+            EditText weight = getWeighRef(NUM_OF_WEIGHTS);
+            TextView theX = getXRef(NUM_OF_WEIGHTS);
+            Spinner multiplier = getMultiplierRef(NUM_OF_WEIGHTS);
+
+            weight.setText(null);
+            theX.setText(null);
+            multiplier.setSelection(0);
+
+            NUM_OF_WEIGHTS--;
+        }
+        else
+        {
+            displayToast("No weights visible.  Try adding weight sets to begin", Toast.LENGTH_LONG);
+        }
     }
 
     /**
@@ -128,7 +224,7 @@ public class WeightCalculator extends ActionBarActivity
         editor.putString("barWeight", barWeight.getText().toString());
 
         //get the weights and multipliers
-        for(int i = 1; i <= MAX_NUM_OF_WEIGHTS; i++)
+        for(int i = 1; i <= NUM_OF_WEIGHTS; i++)
         {
             EditText weight = getWeighRef(i);
             Spinner multiplier = getMultiplierRef(i);
@@ -139,6 +235,9 @@ public class WeightCalculator extends ActionBarActivity
         //get the target
         EditText targetWeight = (EditText) findViewById(R.id.target);
         editor.putString("targetWeight", targetWeight.getText().toString());
+
+        //save the number of visible weight sets
+        editor.putInt("numberOfWeights", NUM_OF_WEIGHTS);
 
         editor.apply();
         //show save toast
@@ -160,8 +259,15 @@ public class WeightCalculator extends ActionBarActivity
         String barString = sharedPref.getString("barWeight", "");
         barWeight.setText(barString);
 
+        //show the saved number of weight sets
+        int savedWeightSets = sharedPref.getInt("numberOfWeights", 1);
+        for (int i = 1; i <= savedWeightSets; i++)
+        {
+            changeWeightSetVisibility(i, View.VISIBLE);
+        }
+
         //set the available weights and multipliers
-        for(int i = 1; i <= MAX_NUM_OF_WEIGHTS; i++)
+        for(int i = 1; i <= savedWeightSets; i++)
         {
             EditText weight = getWeighRef(i);
             Spinner multiplier = getMultiplierRef(i);
@@ -173,18 +279,17 @@ public class WeightCalculator extends ActionBarActivity
             multiplier.setSelection(multiplierPos);
         }
 
+        NUM_OF_WEIGHTS = savedWeightSets;
+
         //set the target
         EditText targetWeight = (EditText) findViewById(R.id.target);
         String targetString = sharedPref.getString("targetWeight", "");
         targetWeight.setText(targetString);
 
-        //show load toast
-        Context context = getApplicationContext();
-        CharSequence text = "Loaded";
-        int duration = Toast.LENGTH_SHORT;
 
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
+
+        //show load toast
+        displayToast("Loaded", Toast.LENGTH_SHORT);
     }
 
     /**
@@ -201,7 +306,7 @@ public class WeightCalculator extends ActionBarActivity
         Double barDouble;
 
         //for each weight/multiplier UI pair, get a reference and pass to inputWeights
-        for(int i = 1; i <= MAX_NUM_OF_WEIGHTS; i++)
+        for(int i = 1; i <= NUM_OF_WEIGHTS; i++)
         {
             EditText weight = getWeighRef(i);
             Spinner multiplier = getMultiplierRef(i);
